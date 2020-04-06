@@ -1,0 +1,297 @@
+
+Linux_Tutorials by _Corey_schaffer
+
+
+Link:
+
+https://www.youtube.com/watch?v=j6vKLJxAKfw&list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c&index=2&t=0s
+
+
+
+/////////Terminal  Shortcuts///////
+
+CTRL a  ----Begning of line
+CTRL e  ----End of lineCTRL +arrow
+CTRL  arrow   ----move a full word
+
+CTRL U ----- Delete all  before cursor
+CTRL K ----- Delete all  after cursor
+TAB key  ---Autocomplete
+cd coomand +drag and drop of folders
+!fi     ------      excecutes first command in historty starting with fi
+history
+!number ---nuber from history to excecute command
+CTRL R   ----reverse search,copy command and run
+
+CTRL L clear screen
+CTRL K
+
+////Creating Alises for command /////
+
+Alias --- short name assigned to command
+
+Go to bash profiles  sudo nano .bash _profile
+
+alias dt="~/Desktop"
+killall ; second command
+
+alias --- gives all the alias you created
+
+
+
+
+///////SET up a new development machine from Scratch ///////
+
+
+dpkg --get-selections > "path/file.txt"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Commands 
+
+
+pwd Print Working Director
+
+
+
+ -l:			 Prints the symbolic path.
+
+ -P: 		Prints the actual path. 
+
+
+
+ls			list
+
+cd 			change directory
+
+ls -a			list all files including hidden files
+
+ls -l     		list all files long form
+
+ls -la   		use both flags
+
+
+
+cd .. `			move to parent directory
+
+cd				folder(will move to folder if presnet)
+
+ls directory/ (will list the directoreis  present in the directory 1)
+
+cd ../..       move two directories back
+
+
+//////////////////////////////video 2////////////
+cd ~   Go to home directory					
+
+mkdir directory
+
+Touch test_file.txt
+
+open test_file.txt
+
+cp test_file.txt copy_file.txt				copy file to same location 
+
+mv test_file.txt orig_file.txt				rename a file
+
+mv orig_file.txt    ../test_file.txt			move a  file to different directory
+
+rm copy_file.txt									remove file completely 
+
+Working With directories //////
+
+cp  -r testdir/ copydir/   					copy directory
+
+nan cp 							get all the usage of commands
+
+mv testdir copydir        		Rename directories
+
+mv testdir/ copydir/			copy directoreis in same folder
+
+rm -r copydir/
+
+rm -rf	testdir				Force delete a directory
+
+
+//////////////////////////////video 3//////////////////////////////////////////////
+
+FIND command
+
+man find 
+
+find . 				find all files and directories
+.
+find . -type d 		Find all directoreis only
+
+find . -type f			Find  files 
+
+find . -type	f -name	 "test_1.txt"
+
+find . -type	f -name	 "test*"                        casesensitive search for test* files
+
+find . -type	f -iname	 "test*"    					 case insensitive search for test* files	
+
+find -type  f -mmin -10								Search for files modified less than 10 min ago
+
+find -type  f -mmin +1 -mmin  -5					Search for files modified more than 1 min ago less than 5
+
+find -type  f -mtime +1 -mtime  -5				Search for files modified more than 1 day ago less than 5 days
+
+amin  atime									access minutes access time
+
+cmin ctime									change minutes 
+
+find . -size +5M 
+				+1k
+				+1G
+				
+
+find . -empty									find empty 
+
+find  . -perm 777       						read modify write
+
+changing file permissions 
+
+find website_demo -exec  chown  coreyschaffer:www-data	{} +		||||||              [[[[[website_demo (file/foldername)  -exec(excecute command) chown(changeowner)   {}=>placeholder   + OR \;  end 
+
+
+
+
+find . -type f	-maxdepth 1	-exec  {} +											go only one folder deep,maxdepthh
+C
+
+///////////////////////////////////_grep /////////////////////////////////////////////////////
+(globally search a regular expression and print)
+
+
+grep " Jane Willams"  names.txt    search word Jane willams
+grep  -wi " Jane Willams"  names.txt    search word Jane willams  full word ,Ignore Case
+grep  -n                                              line number
+
+
+grep  -win -BA  4 " Jane Willams"  names.txt           get four line before and after match
+grep  -win -C   2 " Jane Willams"  names.txt 				get 2 line before and after match
+
+grep  -r																	do recursive search
+grep  -l																	Just give file names
+grep  -c 																get no of instances in each file
+history	
+
+history  | grep "git commit" | grep"dotfile" |
+
+
+
+Advanced search
+_P pattern search
+
+
+///////////////cURL command /////////////////////////////////////////////
+used for interaction with the websites
+download text images data
+pass files ,test connection
+
+
+
+////////////////////_rsync/////////////////////////////////////////////////////////////////
+
+Used for setting backups across machines and files
+
+_rsync only copies which are not duplicate
+
+apt-get install rsync
+
+navigate to directory and give commands
+rsync original/* Backup/										sync original to backups(files only)
+rsync -r original/ Backup/									sync including subdirectories (if you remove trailing slash it will sync original directory in backup(make another directory))
+rsync -a original/ Backup/									-a=archive	sync including file permissions
+rsync -a --dry-run original/ Backup/						just check what files would be moved
+rsync -av --dry-run original/ Backup/					-v verbose output to terminal
+rsync -av --dry-run --delete original/ Backup/		delete extrafiles from backup which does not exist in original files.
+
+
+REMOTE SYNC
+
+ rsync -zaP  ~/projects/my_site  username@ipaddress:~/public/    (z compress file while transmission P progress) source target
+ 
+ 
+ 
+ 
+ 
+ //////////////////////CRON jobs /////////////////////
+ 
+ 
+ Automate system administrator jobs
+ 
+ sudo crontab -l     									Check cron table where cron jobs are scheduled
+ crontab -e
+
+select-editor
+* * * * *  commands_to_excecute
+min hour dayofmonth month day_of_week(0-6)
+
+https://crontab.guru/
+
+* * * * * echo 'hello' >>/temp
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
